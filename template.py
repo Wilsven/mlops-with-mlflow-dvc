@@ -3,10 +3,6 @@ import os
 from datetime import datetime
 from pathlib import Path
 
-
-LOGS_DIR = "logs"
-LOG_FILE = f"{datetime.now().strftime('%m_%d_%Y_%H_%M_%S')}.log"
-LOG_FILE_PATH = os.path.join(LOGS_DIR, LOG_FILE)
 PROJECT_NAME = "cnn_classifier"
 FILE_PATHS = [
     ".github/workflows/.gitkeep",
@@ -32,19 +28,6 @@ FILE_PATHS = [
     f"src/{PROJECT_NAME}/utils/common.py",
     "templates/index.html",
 ]
-
-
-os.makedirs(LOGS_DIR, exist_ok=True)
-
-if not os.path.exists(os.path.join(LOGS_DIR, ".gitkeep")):
-    with open(os.path.join(LOGS_DIR, ".gitkeep"), "w") as f:
-        pass
-
-logging.basicConfig(
-    filename=LOG_FILE_PATH,
-    level=logging.INFO,
-    format="[ %(asctime)s ] %(lineno)d %(module)s %(name)s -  %(levelname)s - %(message)s",
-)
 
 
 def create_project_structure():
