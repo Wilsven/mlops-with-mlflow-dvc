@@ -7,7 +7,7 @@ from pathlib import Path
 LOGS_DIR = "logs"
 LOG_FILE = f"{datetime.now().strftime('%m_%d_%Y_%H_%M_%S')}.log"
 LOG_FILE_PATH = os.path.join(LOGS_DIR, LOG_FILE)
-PROJECT_NAME = "{PROJECT_NAME}"
+PROJECT_NAME = "cnn_classifier"
 FILE_PATHS = [
     ".github/workflows/.gitkeep",
     "Dockerfile",
