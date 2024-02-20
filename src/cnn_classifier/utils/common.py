@@ -41,16 +41,13 @@ def read_yaml(path_to_yaml: Path) -> ConfigBox:
 
 
 @ensure_annotations
-def create_directories(path_to_directories: list, verbose: bool = True) -> None:
+def create_directories(path_to_directories: list, verbose: bool = True):
     """
     Ensures that the given directories are created, from a list of paths.
 
     Args:
         path_to_directories (list): The list of paths to create directories for.
         verbose (bool, optional): Whether to display verbose output. Defaults to True.
-
-    Returns:
-        None
     """
     for path in path_to_directories:
         os.makedirs(path, exist_ok=True)
@@ -59,16 +56,13 @@ def create_directories(path_to_directories: list, verbose: bool = True) -> None:
 
 
 @ensure_annotations
-def save_json(path: Path, data: dict) -> None:
+def save_json(path: Path, data: dict):
     """
     Saves JSON data to the specified file path.
 
     Args:
         path (Path): The file path where the JSON data will be saved.
         data (dict): The JSON data to be saved.
-
-    Returns:
-        None
     """
     with open(path, "w") as f:
         json.dump(data, f, indent=4)
@@ -97,16 +91,13 @@ def load_json(path: Path) -> ConfigBox:
 
 
 @ensure_annotations
-def save_bin(data: Any, path: Path) -> None:
+def save_bin(data: Any, path: Path):
     """
     Saves binary data to a file.
 
     Args:
         data (Any): The data to be saved.
         path (Path): The file path where the data will be saved.
-
-    Returns:
-        None
     """
     joblib.dump(value=data, filename=path)
     logger.info(f"Binary file saved at: {path}")
@@ -145,16 +136,13 @@ def get_size(path: Path) -> str:
     return f"~ {size_in_kb} KB"
 
 
-def decode_image(img_str: str, file_name: str) -> None:
+def decode_image(img_str: str, file_name: str):
     """
     Decodes the base64 encoded image string and writes the resulting image data to a file.
 
     Args:
         img_str (str): The base64 encoded image string.
         file_name (str): The name of the file to write the image data to.
-
-    Returns:
-        None
     """
     img_data = base64.b64decode(img_str)
     with open(file_name, "wb") as f:

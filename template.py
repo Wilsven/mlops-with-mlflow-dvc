@@ -1,6 +1,5 @@
 import logging
 import os
-from datetime import datetime
 from pathlib import Path
 
 PROJECT_NAME = "cnn_classifier"
@@ -13,17 +12,29 @@ FILE_PATHS = [
     "main.py",
     "params.yaml",
     "requirements.txt",
+    "research/01_data_ingestion.ipynb",
+    "research/02_prepare_base_model.ipynb",
+    "research/03_model_trainer.ipynb",
+    "research/04_model_evaluation.ipynb",
     "research/trials.ipynb",
     "schema.yaml",
     "setup.py",
     f"src/{PROJECT_NAME}/__init__.py",
     f"src/{PROJECT_NAME}/components/__init__.py",
+    f"src/{PROJECT_NAME}/components/data_ingestion.py",
+    f"src/{PROJECT_NAME}/components/prepare_base_model.py",
+    f"src/{PROJECT_NAME}/components/model_trainer.py",
+    f"src/{PROJECT_NAME}/components/model_evaluation.py",
     f"src/{PROJECT_NAME}/config/__init__.py",
     f"src/{PROJECT_NAME}/config/configuration.py",
     f"src/{PROJECT_NAME}/constants/__init__.py",
     f"src/{PROJECT_NAME}/entity/__init__.py",
     f"src/{PROJECT_NAME}/entity/config_entity.py",
     f"src/{PROJECT_NAME}/pipeline/__init__.py",
+    f"src/{PROJECT_NAME}/pipeline/data_ingestion_pipeline.py",
+    f"src/{PROJECT_NAME}/pipeline/prepare_base_model_pipeline.py",
+    f"src/{PROJECT_NAME}/pipeline/model_trainer_pipeline.py",
+    f"src/{PROJECT_NAME}/pipeline/model_evaluation_pipeline.py",
     f"src/{PROJECT_NAME}/utils/__init__.py",
     f"src/{PROJECT_NAME}/utils/common.py",
     "templates/index.html",

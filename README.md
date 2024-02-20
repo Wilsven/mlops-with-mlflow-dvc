@@ -1,5 +1,17 @@
 # MLOps with MLFlow and DVC
 
+# 📋 Workflows
+
+1. Update `config.yaml`
+2. Update `schema.yaml` _[For validation]_
+3. Update `params.yaml` _[For training]_
+4. Update the entity
+5. Update the configuration manager in `src/config`
+6. Update the components
+7. Update the pipeline
+8. Update the `main.py`
+9. Update the `dvc.yaml`
+
 # 🐶 [Dagshub](https://dagshub.com/)
 
 ```
