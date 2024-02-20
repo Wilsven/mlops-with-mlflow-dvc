@@ -33,6 +33,13 @@ FILE_PATHS = [
     "templates/index.html",
 ]
 
+
+os.makedirs(LOGS_DIR, exist_ok=True)
+
+if not os.path.exists(os.path.join(LOGS_DIR, ".gitkeep")):
+    with open(os.path.join(LOGS_DIR, ".gitkeep"), "w") as f:
+        pass
+
 logging.basicConfig(
     filename=LOG_FILE_PATH,
     level=logging.INFO,
