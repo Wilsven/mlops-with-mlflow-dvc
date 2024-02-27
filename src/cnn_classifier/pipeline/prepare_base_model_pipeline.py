@@ -13,13 +13,14 @@ class PrepareBaseModelPipeline:
             e: Exception.
         """
         try:
-            logger.info(f"Prepare base model started")
+            logger.info("Base model preparation started")
             configuration_manager = ConfigurationManager()
             base_model_config = configuration_manager.get_base_model_config()
             prepare_base_model = PrepareBaseModel(config=base_model_config)
             prepare_base_model.get_base_model()
             prepare_base_model.update_base_model()
+            logger.info("Base model preparation completed")
 
         except Exception as e:
-            logger.error(f"Prepare base model failed: {e}")
+            logger.error(f"Base model preparation failed: {e}")
             raise e

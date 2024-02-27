@@ -21,3 +21,15 @@ class BaseModelConfig:
     include_top: bool
     weights: str
     classes: int
+
+
+@dataclass(frozen=True)
+class ModelTrainerConfig:
+    root_dir: Path
+    trained_model_file_path: Path
+    updated_base_model_path: Path
+    data_path: Path
+    image_size: list
+    epochs: int
+    batch_size: int
+    augmentation: bool
