@@ -18,12 +18,7 @@ class DataIngestion:
         self.config = config
 
     def download_data(self):
-        """
-        Downloads the data from a specified source URL and save it to a local file.
-
-        Parameters:
-            self: The instance of the class.
-        """
+        """Downloads the data from a specified source URL and save it to a local file."""
         try:
             root_dir = self.config.root_dir
             source_url = self.config.source_url
@@ -45,13 +40,7 @@ class DataIngestion:
             raise e
 
     def extract_zip_file(self):
-        """
-        Extracts a zip file into the specified directory.
-
-        Parameters:
-            self (object): The object instance
-            unzip_dir (str): The directory to extract the zip file into
-        """
+        """Extracts a zip file into the specified directory."""
         unzip_dir = self.config.unzip_dir
         os.makedirs(unzip_dir, exist_ok=True)
         with zipfile.ZipFile(self.config.local_data_file, "r") as f:

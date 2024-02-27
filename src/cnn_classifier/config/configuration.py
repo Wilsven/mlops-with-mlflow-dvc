@@ -1,5 +1,6 @@
 from cnn_classifier.constants import *
-from cnn_classifier.entity.config_entity import DataIngestionConfig
+from cnn_classifier.entity.config_entity import (BaseModelConfig,
+                                                 DataIngestionConfig)
 from cnn_classifier.utils.common import create_directories, read_yaml
 
 
@@ -41,3 +42,28 @@ class ConfigurationManager:
         )
 
         return data_ingestion_config
+
+    def get_base_model_config(self) -> BaseModelConfig:
+        """
+        Returns the base model configuration based on the provided config.
+
+        Returns:
+            BaseModelConfig: The base model configuration object.
+        """
+        cfg = self.config.prepare_base_model
+        params = self.params.params
+
+        create_directories([cfg.root_dir])
+
+        base_model_config = BaseModelConfig(
+            root_dir=cfg.root_dir,
+            base_model_path=cfg.base_model_path,
+            updated_base_model_path=cfg.updated_base_model_path,
+            image_size=params.IMAGE_SIZE,
+            learning_rate=params.LEARNING_RATE,
+            include_top=params.INCLUDE_TOP,
+            weights=params.WEIGHTS,
+            classes=params.CLASSES,
+        )
+
+        return base_model_config
