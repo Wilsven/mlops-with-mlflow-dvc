@@ -5,16 +5,18 @@ from cnn_classifier.config.configuration import ConfigurationManager
 
 class ModelEvaluationPipeline:
 
-    def run_pipeline(self):
+    def run_pipeline(self, configuration_manager: ConfigurationManager):
         """
         Method to run the model evaluation pipeline.
+
+        Args:
+            configuration_manager (ConfigurationManager): The configuration manager object.
 
         Raises:
             e: Exception.
         """
         try:
             logger.info("Model evaluation started")
-            configuration_manager = ConfigurationManager()
             model_evaluation_config = (
                 configuration_manager.get_model_evaluation_config()
             )

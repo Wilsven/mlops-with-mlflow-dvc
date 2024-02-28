@@ -5,16 +5,18 @@ from cnn_classifier.config.configuration import ConfigurationManager
 
 class ModelTrainerPipeline:
 
-    def run_pipeline(self):
+    def run_pipeline(self, configuration_manager: ConfigurationManager):
         """
         Method to run the base model trainer pipeline.
+
+        Args:
+            configuration_manager (ConfigurationManager): The configuration manager object.
 
         Raises:
             e: Exception.
         """
         try:
             logger.info("Model training started")
-            configuration_manager = ConfigurationManager()
             model_trainer_config = configuration_manager.get_model_trainer_config()
             model_trainer = ModelTrainer(config=model_trainer_config)
             model_trainer.get_base_model()

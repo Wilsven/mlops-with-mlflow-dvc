@@ -5,16 +5,18 @@ from cnn_classifier.config.configuration import ConfigurationManager
 
 class DataIngestionPipeline:
 
-    def run_pipeline(self):
+    def run_pipeline(self, configuration_manager: ConfigurationManager):
         """
         Method to run the data ingestion pipeline.
+
+        Args:
+            configuration_manager (ConfigurationManager): The configuration manager object.
 
         Raises:
             e: Exception.
         """
         try:
             logger.info("Data ingestion started")
-            configuration_manager = ConfigurationManager()
             data_ingestion_config = configuration_manager.get_data_ingestion_config()
             data_ingestion = DataIngestion(config=data_ingestion_config)
             data_ingestion.download_data()

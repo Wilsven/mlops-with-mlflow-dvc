@@ -5,16 +5,18 @@ from cnn_classifier.config.configuration import ConfigurationManager
 
 class PrepareBaseModelPipeline:
 
-    def run_pipeline(self):
+    def run_pipeline(self, configuration_manager: ConfigurationManager):
         """
         Method to run the base model preparation pipeline.
+
+        Args:
+            configuration_manager (ConfigurationManager): The configuration manager object.
 
         Raises:
             e: Exception.
         """
         try:
             logger.info("Base model preparation started")
-            configuration_manager = ConfigurationManager()
             base_model_config = configuration_manager.get_base_model_config()
             prepare_base_model = PrepareBaseModel(config=base_model_config)
             prepare_base_model.get_base_model()
