@@ -135,7 +135,7 @@ class ConfigurationManager:
             root_dir=cfg.root_dir,
             model_path=model_path,
             data_path=data_path,
-            params=self.params,
+            params=params,
             mlflow_uri=MLFLOW_TRACKING_URI,
             image_size=params.IMAGE_SIZE,
             batch_size=params.BATCH_SIZE,
