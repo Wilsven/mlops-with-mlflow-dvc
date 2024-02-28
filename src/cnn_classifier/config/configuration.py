@@ -1,8 +1,19 @@
+import os
+
+from dotenv import load_dotenv
+
 from cnn_classifier.constants import *
-from cnn_classifier.entity.config_entity import (BaseModelConfig,
-                                                 DataIngestionConfig,
-                                                 ModelTrainerConfig)
+from cnn_classifier.entity.config_entity import (
+    BaseModelConfig,
+    DataIngestionConfig,
+    ModelEvaluationConfig,
+    ModelTrainerConfig,
+)
 from cnn_classifier.utils.common import create_directories, read_yaml
+
+load_dotenv()
+
+MLFLOW_TRACKING_URI = os.getenv("MLFLOW_TRACKING_URI")
 
 
 class ConfigurationManager:
@@ -71,7 +82,7 @@ class ConfigurationManager:
 
     def get_model_trainer_config(self) -> ModelTrainerConfig:
         """
-        Return the model trainer configuration based on the provided parameters.
+        Returns the model trainer configuration based on the provided config.
 
         Returns:
             ModelTrainerConfig: The model trainer configuration object.
@@ -100,3 +111,34 @@ class ConfigurationManager:
         )
 
         return model_trainer_config
+
+    def get_model_evaluation_config(self) -> ModelEvaluationConfig:
+        """
+        Returns the model evaluation configuration based on the provided config.
+
+        Returns:
+            ModelEvaluationConfig: The model evaluation configuration object.
+        """
+        cfg = self.config.model_evaluation
+        params = self.params.params
+
+        model_path = self.config.model_trainer.trained_model_file_path
+        data_path = [
+            f.path
+            for f in os.scandir(self.config.data_ingestion.unzip_dir)
+            if f.is_dir()
+        ][0]
+
+        create_directories([cfg.root_dir])
+
+        model_evaluation_config = ModelEvaluationConfig(
+            root_dir=cfg.root_dir,
+            model_path=model_path,
+            data_path=data_path,
+            params=self.params,
+            mlflow_uri=MLFLOW_TRACKING_URI,
+            image_size=params.IMAGE_SIZE,
+            batch_size=params.BATCH_SIZE,
+        )
+
+        return model_evaluation_config

@@ -33,3 +33,14 @@ class ModelTrainerConfig:
     epochs: int
     batch_size: int
     augmentation: bool
+
+
+@dataclass(frozen=True)
+class ModelEvaluationConfig:
+    root_dir: Path
+    model_path: Path
+    data_path: Path
+    params: dict
+    mlflow_uri: str
+    image_size: list
+    batch_size: int

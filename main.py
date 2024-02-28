@@ -1,4 +1,5 @@
 from cnn_classifier.pipeline.data_ingestion_pipeline import DataIngestionPipeline
+from cnn_classifier.pipeline.model_evaluation_pipeline import ModelEvaluationPipeline
 from cnn_classifier.pipeline.model_trainer_pipeline import ModelTrainerPipeline
 from cnn_classifier.pipeline.prepare_base_model_pipeline import PrepareBaseModelPipeline
 
@@ -7,6 +8,7 @@ def run_pipelines(
     data_ingestion_pipeline: DataIngestionPipeline,
     prepare_base_model_pipeline: PrepareBaseModelPipeline,
     model_trainer_pipeline: ModelTrainerPipeline,
+    model_evaluation_pipeline: ModelEvaluationPipeline,
 ):
     """
     Runs the entire pipeline.
@@ -15,10 +17,12 @@ def run_pipelines(
         data_ingestion_pipeline (DataIngestionPipeline): The data ingestion pipeline object.
         prepare_base_model_pipeline (PrepareBaseModelPipeline): The prepare base model pipeline object.
         model_trainer_pipeline (ModelTrainerPipeline): The model trainer pipeline object.
+        model_evaluation_pipeline (ModelEvaluationPipeline). The model evaluation pipeline object.
     """
     data_ingestion_pipeline.run_pipeline()
     prepare_base_model_pipeline.run_pipeline()
     model_trainer_pipeline.run_pipeline()
+    model_evaluation_pipeline.run_pipeline()
 
 
 if __name__ == "__main__":
@@ -26,8 +30,12 @@ if __name__ == "__main__":
     data_ingestion_pipeline = DataIngestionPipeline()
     prepare_base_model_pipeline = PrepareBaseModelPipeline()
     model_trainer_pipeline = ModelTrainerPipeline()
+    model_evaluation_pipeline = ModelEvaluationPipeline()
 
     # Run all pipelines
     run_pipelines(
-        data_ingestion_pipeline, prepare_base_model_pipeline, model_trainer_pipeline
+        data_ingestion_pipeline,
+        prepare_base_model_pipeline,
+        model_trainer_pipeline,
+        model_evaluation_pipeline,
     )
