@@ -239,3 +239,17 @@ AWS_REGION=
 AWS_ECR_LOGIN_URI=
 ECR_REPOSITORY_NAME=
 ```
+
+9. Click the `Instance ID` of the newly created EC2 instance
+
+   - Select the `Security` tab and click on the link under `Securtiy groups`
+
+   - Click on `Edit inbound rules`
+
+   - `Add rule`
+
+   - Ensure:
+
+     - `Type` is `Custom TCP`,
+     - `Port range` is set to `8080` and
+     - `CIDR blocks` to `0.0.0.0/0`
