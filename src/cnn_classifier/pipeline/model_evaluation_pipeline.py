@@ -22,7 +22,7 @@ class ModelEvaluationPipeline:
             )
             model_evaluation = ModelEvaluation(config=model_evaluation_config)
             model_evaluation.evaluation()
-            model_evaluation.log_into_mlflow()
+            # model_evaluation.log_into_mlflow()  # only for production
             logger.info("Model evaluation ended")
 
         except Exception as e:

@@ -48,4 +48,5 @@ def predict():
 
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=8080, debug=True)  # local host
+    # app.run(host="0.0.0.0", port=8080, debug=True)  # for debugging
+    app.run(host="0.0.0.0", port=8080)  # for deployment
