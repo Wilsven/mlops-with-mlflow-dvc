@@ -28,3 +28,8 @@ class ModelEvaluationPipeline:
         except Exception as e:
             logger.error(f"Model evaluation failed: {e}")
             raise e
+
+
+if __name__ == "__main__":
+    model_evaluation_pipeline = ModelEvaluationPipeline()
+    model_evaluation_pipeline.run_pipeline(configuration_manager=ConfigurationManager())

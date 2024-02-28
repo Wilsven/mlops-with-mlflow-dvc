@@ -26,3 +26,8 @@ class DataIngestionPipeline:
         except Exception as e:
             logger.error(f"Data ingestion failed: {e}")
             raise e
+
+
+if __name__ == "__main__":
+    data_ingestion_pipeline = DataIngestionPipeline()
+    data_ingestion_pipeline.run_pipeline(configuration_manager=ConfigurationManager())

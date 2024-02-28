@@ -4,7 +4,6 @@ from cnn_classifier.pipeline.model_evaluation_pipeline import ModelEvaluationPip
 from cnn_classifier.pipeline.model_trainer_pipeline import ModelTrainerPipeline
 from cnn_classifier.pipeline.prepare_base_model_pipeline import PrepareBaseModelPipeline
 
-
 pipelines = {
     "data_ingestion_pipeline": DataIngestionPipeline(),
     "prepare_base_model_pipeline": PrepareBaseModelPipeline(),

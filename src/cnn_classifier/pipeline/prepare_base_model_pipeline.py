@@ -26,3 +26,10 @@ class PrepareBaseModelPipeline:
         except Exception as e:
             logger.error(f"Base model preparation failed: {e}")
             raise e
+
+
+if __name__ == "__main__":
+    prepare_base_model_pipeline = PrepareBaseModelPipeline()
+    prepare_base_model_pipeline.run_pipeline(
+        configuration_manager=ConfigurationManager()
+    )

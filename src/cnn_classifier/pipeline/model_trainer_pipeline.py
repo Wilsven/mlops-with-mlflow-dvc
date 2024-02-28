@@ -27,3 +27,8 @@ class ModelTrainerPipeline:
         except Exception as e:
             logger.error(f"Model training failed: {e}")
             raise e
+
+
+if __name__ == "__main__":
+    model_trainer_pipeline = ModelTrainerPipeline()
+    model_trainer_pipeline.run_pipeline(configuration_manager=ConfigurationManager())

@@ -3,12 +3,10 @@ import os
 from dotenv import load_dotenv
 
 from cnn_classifier.constants import *
-from cnn_classifier.entity.config_entity import (
-    BaseModelConfig,
-    DataIngestionConfig,
-    ModelEvaluationConfig,
-    ModelTrainerConfig,
-)
+from cnn_classifier.entity.config_entity import (BaseModelConfig,
+                                                 DataIngestionConfig,
+                                                 ModelEvaluationConfig,
+                                                 ModelTrainerConfig)
 from cnn_classifier.utils.common import create_directories, read_yaml
 
 load_dotenv()
